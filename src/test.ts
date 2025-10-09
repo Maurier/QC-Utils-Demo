@@ -20,10 +20,10 @@ export const testRegularJS = async () => {
     datetimes: mockDatastream.phenomenonTime.map((dateString) =>
       new Date(dateString).getTime()
     ),
-    dataValues: mockDatastream.result,
+    dataValues: [...mockDatastream.result],
   };
 
-  console.info(`\tLoaded ${rawData.datetimes.length} elements`)
+  console.info(`\tLoaded ${rawData.dataValues.length} elements`)
 
   console.info(`Deleting ${randomIndexes.length} element(s)...`)
   measureEllapsedTime(() => {
@@ -35,12 +35,12 @@ export const testRegularJS = async () => {
     }
   })
 
-  console.info(`\tLength after delete: ${rawData.datetimes.length}`);
+  console.info(`\tLength after delete: ${rawData.dataValues.length}`);
 }
 
 export const testQcUtils = async () => {
   console.info(`\n>>> Testing operation with QC-Utils...`)
-  // Preprocess data
+  // Preprocess data (qc-utils will not modify the original array).
   const rawData: {
     datetimes: number[];
     dataValues: number[];
