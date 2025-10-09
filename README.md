@@ -1,5 +1,3 @@
-# Vue 3 + TypeScript + Vite
+# QC-Utils
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+This Demo illustrates how [QC-Utils](https://github.com/hydroserver2/qc-utils) leverages [Shared Array Buffers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) and [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) to perform fast quality control operations on large datasets.
