@@ -1,0 +1,24 @@
+{
+  "name": "qc-utils-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "up": "taze major -I"
+  },
+  "dependencies": {
+    "@uwrl/qc-utils": "^0.0.17",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "taze": "^19.7.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.9",
+    "vue-tsc": "^3.0.9"
+  }
+}
