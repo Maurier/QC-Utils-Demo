@@ -52,32 +52,34 @@ const onTestQcUtils = async () => {
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 
 .container {
   display: flex;
   align-items: space-between;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .test-btn {
   cursor: pointer;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #686868;
+  border-radius: 8px;
   padding: 2rem;
 
   &:hover {
-    background: #ffffff27;
+    .logo {
+      filter: drop-shadow(0 0 2em #646cffaa);
+    }
+    .logo.vue {
+      filter: drop-shadow(0 0 2em #42b883aa);
+    }
   }
 
   &.disabled {
     pointer-events: none;
     filter: grayscale(1);
+    scale: 1.15;
   }
+
+  transition: all 0.15s ease-in-out;
 }
 </style>
