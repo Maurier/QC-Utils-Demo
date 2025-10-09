@@ -21,14 +21,22 @@ const onTestQcUtils = async () => {
 
 <template>
   <div class="container">
-    <div class="test-btn" @click="onTestRegularJs">
+    <div
+      class="test-btn"
+      :class="{ disabled: isTestingRegularJs }"
+      @click="onTestRegularJs"
+    >
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
       <div>
         {{ isTestingRegularJs ? "Testing regular JS..." : "Test Regular JS" }}
       </div>
     </div>
 
-    <div class="test-btn" @click="onTestQcUtils">
+    <div
+      class="test-btn"
+      :class="{ disabled: isTestingQcUtils }"
+      @click="onTestQcUtils"
+    >
       <img src="/vite.svg" class="logo" alt="Vite logo" />
       <div>
         {{ isTestingQcUtils ? "Testing QC-Utils..." : "Test QC-Utils" }}
@@ -65,6 +73,11 @@ const onTestQcUtils = async () => {
 
   &:hover {
     background: #ffffff27;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    filter: grayscale(1);
   }
 }
 </style>

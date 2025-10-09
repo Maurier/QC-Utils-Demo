@@ -23,7 +23,7 @@ export const testRegularJS = async () => {
     dataValues: [...mockDatastream.result],
   };
 
-  console.info(`\tLoaded ${rawData.dataValues.length} elements`)
+  console.info(`\tLoaded ${rawData.dataValues.length} element(s)`)
 
   console.info(`Deleting ${randomIndexes.length} element(s)...`)
   measureEllapsedTime(() => {
