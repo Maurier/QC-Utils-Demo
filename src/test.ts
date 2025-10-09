@@ -35,7 +35,7 @@ export const testRegularJS = async () => {
     }
   })
 
-  console.info(`\tLength after delete: ${rawData.dataValues.length}`);
+  console.assert(rawData.dataValues.length === mockDatastream.result.length - toDelete, "Result mismatch")
 }
 
 export const testQcUtils = async () => {
@@ -60,6 +60,6 @@ export const testQcUtils = async () => {
   console.info(`Deleting ${randomIndexes.length} element(s)...`)
   await obsRecord.dispatch(EnumEditOperations.DELETE_POINTS, randomIndexes);
 
-  console.info(`\tLength after delete: ${obsRecord.dataX.length}\n\n`);
+  console.assert(obsRecord.dataX.length === mockDatastream.result.length - toDelete, "Result mismatch")
 }
 
