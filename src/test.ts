@@ -11,7 +11,7 @@ const randomIndexes = generateDistinctRandomNumbers(
 );
 
 export const testRegularJS = async () => {
-  console.info(`>>> Testing operation with regular JavaScript...`)
+  console.info(`\n>>> Testing operation with regular JavaScript...`)
   // Preprocess data
   const rawData: {
     datetimes: number[];
@@ -39,7 +39,7 @@ export const testRegularJS = async () => {
 }
 
 export const testQcUtils = async () => {
-  console.info(`\n\n>>> Testing operation with QC-Utils...`)
+  console.info(`\n>>> Testing operation with QC-Utils...`)
   // Preprocess data
   const rawData: {
     datetimes: number[];
