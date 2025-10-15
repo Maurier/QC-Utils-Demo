@@ -26,7 +26,7 @@ export const testRegularJS = async () => {
   console.info(`\tLoaded ${rawData.dataValues.length} element(s)`)
 
   console.info(`Deleting ${randomIndexes.length} element(s)...`)
-  measureEllapsedTime(() => {
+  const measurement = await measureEllapsedTime(() => {
     // Dispatching operation
     for (let i = randomIndexes.length - 1; i >= 0; i--) {
       const index: number = randomIndexes[i] as number
@@ -36,6 +36,7 @@ export const testRegularJS = async () => {
   })
 
   console.assert(rawData.dataValues.length === mockDatastream.result.length - toDelete, "Result mismatch")
+  return measurement
 }
 
 export const testQcUtils = async () => {
@@ -56,10 +57,14 @@ export const testQcUtils = async () => {
   const obsRecord = await (new ObservationRecord(rawData));
   console.info(`\tLoaded ${obsRecord.dataX.length} element(s).`);
 
-  // Dispatching operation
-  console.info(`Deleting ${randomIndexes.length} element(s)...`)
-  await obsRecord.dispatch(EnumEditOperations.DELETE_POINTS, randomIndexes);
+  const measurement = await measureEllapsedTime(async () => {
+    // Dispatching operation
+    console.info(`Deleting ${randomIndexes.length} element(s)...`)
+    await obsRecord.dispatch(EnumEditOperations.DELETE_POINTS, randomIndexes);
+  })
+
 
   console.assert(obsRecord.dataX.length === mockDatastream.result.length - toDelete, "Result mismatch")
+  return measurement
 }
 
