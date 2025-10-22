@@ -4,8 +4,8 @@ import { generateDistinctRandomNumbers } from './utils'
 
 const length: number = mockDatastream.phenomenonTime.length - 1
 // Stage delete operation
-const toDelete = 50000;
-const toInsert = 50000;
+const toDelete = 25000;
+const toInsert = 25000;
 const noDataValue = -999999
 const randomIndexes = generateDistinctRandomNumbers(
   toDelete,

@@ -27,23 +27,24 @@ const startTests = async () => {
     // Will wait for the plot to render before continuing
     setTimeout(async () => {
       const resultsJS = await onTestRegularJs();
-      const resultsQC = await onTestQcUtils();
-
       const traceJs = {
         x: operations,
         y: resultsJS.map((r) => r.duration / 1000),
       };
-      const traceQC = {
-        x: operations,
-        y: resultsQC.map((r) => r.duration / 1000),
-      };
 
-      // TODO: for fast testing
-      // const traceJs = { x: operations, y: [15] };
-      // const traceQC = { x: operations, y: [30] };
+      updateBarChart(traceJs, { x: operations, y: operations.map((o) => 0) });
 
-      updateBarChart(traceJs, traceQC);
-      isTesting.value = false;
+      setTimeout(async () => {
+        const resultsQC = await onTestQcUtils();
+
+        const traceQC = {
+          x: operations,
+          y: resultsQC.map((r) => r.duration / 1000),
+        };
+
+        updateBarChart(traceJs, traceQC);
+        isTesting.value = false;
+      }, 500);
     });
   });
 };
