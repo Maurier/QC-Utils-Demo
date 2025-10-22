@@ -10,7 +10,11 @@ const isTestingQcUtils = ref(false);
 const isTesting = ref(false);
 const testResults = ref([]);
 
-const operations = ["DELETE"];
+const operations = [
+  "DELETE",
+  "INSERT",
+  //  "FIND GAPS", "INTERPOLATE"
+];
 const startTests = async () => {
   testResults.value = [];
   isTestingRegularJs.value = true;
@@ -25,8 +29,14 @@ const startTests = async () => {
       const resultsJS = await onTestRegularJs();
       const resultsQC = await onTestQcUtils();
 
-      const traceJs = { x: operations, y: [resultsJS.duration / 1000] };
-      const traceQC = { x: operations, y: [resultsQC.duration / 1000] };
+      const traceJs = {
+        x: operations,
+        y: resultsJS.map((r) => r.duration / 1000),
+      };
+      const traceQC = {
+        x: operations,
+        y: resultsQC.map((r) => r.duration / 1000),
+      };
 
       // TODO: for fast testing
       // const traceJs = { x: operations, y: [15] };

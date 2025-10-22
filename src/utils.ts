@@ -1,3 +1,11 @@
+
+/**
+ * Generates `amount` random numbers between `min` and `max`. Returns a sorted array containing the values.
+ * @param amount 
+ * @param min 
+ * @param max 
+ * @returns 
+ */
 export function generateDistinctRandomNumbers(
   amount: number,
   min: number,
